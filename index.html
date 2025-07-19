@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NetCat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #0a0a0a;
+      color: #00FF88;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .glow {
+      text-shadow: 0 0 5px #00FF88, 0 0 10px #00FF88;
+    }
+
+    .card-border {
+      border: 1px solid #00FF88;
+      box-shadow: 0 0 10px #00FF8855;
+    }
+
+    .background-map {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/3/33/World_map_blank_without_borders.svg') no-repeat center center;
+      background-size: cover;
+      opacity: 0.05;
+      filter: brightness(1.2) contrast(1.2) sepia(1) hue-rotate(90deg) saturate(5);
+      z-index: -2;
+    }
+
+    .scanlines::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 136, 0.03),
+        rgba(0, 255, 136, 0.03) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a:hover {
+      color: #00ffaa;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col scanlines">
+
+  <div class="background-map"></div>
+
+  <header class="p-6 border-b border-green-400 glow">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+      <h1 class="text-3xl glow">root@netcat:~#</h1>
+      <nav class="mt-4 md:mt-0">
+        <ul class="flex space-x-6 text-sm">
+          <li><a href="#about">/about</a></li>
+          <li><a href="#projects">/projects</a></li>
+          <li><a href="#contact">/contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow px-4 py-12" id="projects">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl mb-6 glow">>> Specializations</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 card-border rounded-md bg-black/40 hover:bg-black/60 transition">
+          <h3 class="text-xl glow mb-2">[+] Red Team Operations</h3>
+          <p class="text-sm text-green-300">Simulating adversaries to test detection, response, and resilience.</p>
+        </div>
+
+        <div class="p-6 card-border rounded-md bg-black/40 hover:bg-black/60 transition">
+          <h3 class="text-xl glow mb-2">[+] Penetration Testing</h3>
+          <p class="text-sm text-green-300">Finding and exploiting vulnerabilities across networks and apps.</p>
+        </div>
+
+        <div class="p-6 card-border rounded-md bg-black/40 hover:bg-black/60 transition">
+          <h3 class="text-xl glow mb-2">[+] Network Recon</h3>
+          <p class="text-sm text-green-300">Mapping attack surfaces using OSINT, nmap, and passive intel.</p>
+        </div>
+
+        <div class="p-6 card-border rounded-md bg-black/30 hover:bg-black/50 transition">
+          <h3 class="text-xl glow mb-2">[+] Malware Development</h3>
+          <p class="text-sm text-green-300">Windows exploitation, Remote control, </p>
+        </div>
+
+        <div class="p-6 card-border rounded-md bg-black/40 hover:bg-black/60 transition">
+          <h3 class="text-xl glow mb-2">[+] C2 Infrastructure</h3>
+          <p class="text-sm text-green-300">Command and control via encrypted channels and evasion tactics.</p>
+        </div>
+
+        <div class="p-6 card-border rounded-md bg-black/40 hover:bg-black/60 transition">
+          <h3 class="text-xl glow mb-2">[+] Post Exploitation</h3>
+          <p class="text-sm text-green-300">Lateral movement, credential dumping, and domain persistence.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center text-xs py-6 border-t border-green-400 glow">
+    &copy; 2025 root@netcat | Hack the Planet 🌍
+  </footer>
+
+</body>
+</html>
